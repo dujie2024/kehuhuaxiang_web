@@ -40,6 +40,11 @@ logs/
 *.backup
 config.ini.backup
 
+# GitHub Token 配置文件（本地安全存储）
+github_token.bat
+github_token.conf
+.env
+
 # 密钥文件 - 重要!
 .secret_key
 *.key
