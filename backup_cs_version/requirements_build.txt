@@ -1,0 +1,14 @@
+# 打包所需依赖
+pyinstaller>=5.0.0
+
+# 运行时依赖
+customtkinter>=5.0.0
+tkcalendar>=1.6.0
+matplotlib>=3.5.0
+mplcursors>=0.5.0
+pymysql>=1.0.0
+configparser>=5.0.0
+Pillow>=8.0.0
+numpy>=1.20.0
+python-dateutil>=2.8.0
+babel>=2.9.0

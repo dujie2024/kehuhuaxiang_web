@@ -1,0 +1,16 @@
+{
+  "reportMissingTypeStubs": false,
+  "reportMissingImports": false,
+  "exclude": [
+    "**/__pycache__",
+    "**/.pytest_cache", 
+    "**/build",
+    "**/dist",
+    "**/node_modules"
+  ],
+  "ignore": [
+    "tkcalendar",
+    "pymysql", 
+    "mplcursors"
+  ]
+}

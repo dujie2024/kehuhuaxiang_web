@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>停车数据分析 - 新朝旅游</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/module.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/duration.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <a href="/" class="back-btn">← 返回首页</a>
+            <h1>📊 停车数据分析</h1>
+        </header>
+
+        <div class="content-wrapper">
+            <div class="form-panel">
+                <h2>查询参数设置</h2>
+                <form id="query-form">
+                    <div class="form-group">
+                        <label for="parking-lot">停车场选择:</label>
+                        <select id="parking-lot" name="parking_lot" required>
+                            <option value="">加载中...</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="chart-type">图表类型:</label>
+                        <select id="chart-type" name="chart_type" required>
+                            <option value="">加载中...</option>
+                        </select>
+                    </div>
+                    
+                    <h3>快速日期选择</h3>
+                    <div class="quick-dates">
+                        <button type="button" class="btn-quick" data-start="2025-05-01" data-end="2025-05-05">五一假期</button>
+                        <button type="button" class="btn-quick" data-start="2025-10-01" data-end="2025-10-07">十一假期</button>
+                        <button type="button" class="btn-quick" data-start="2025-07-01" data-end="2025-08-31">暑假</button>
+                    </div>
+                    
+                    <h3>自定义日期范围</h3>
+                    <div class="form-group">
+                        <label for="start-date">开始日期:</label>
+                        <input type="date" id="start-date" name="start_date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="end-date">结束日期:</label>
+                        <input type="date" id="end-date" name="end_date" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        🔍 开始分析
+                    </button>
+                </form>
+            </div>
+            
+            <div class="results-panel">
+                <div class="results-header">
+                    <h2>查询结果</h2>
+                    <button id="chart-btn" class="btn btn-secondary" style="display: none;">
+                        📊 生成图表
+                    </button>
+                </div>
+                <div id="results-container" class="results-container">
+                    <div class="empty-state">
+                        <p>👆 请选择查询参数并点击"开始分析"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="chart-container" class="chart-container" style="display: none;">
+            <h3>数据可视化</h3>
+            <img id="chart-img" src="" alt="图表">
+        </div>
+
+        <div class="help-section">
+            <h4>📌 数据说明</h4>
+            <p>停车数据：天女小镇东西停车场及欢乐湾一二层停车场2025年数据 (20250101-20251010)</p>
+            <h4>💡 操作说明</h4>
+            <ol>
+                <li>选择停车场（天女小镇停车场 或 欢乐湾停车场）</li>
+                <li>选择图表类型（按省份 或 按城市）</li>
+                <li>选择日期范围</li>
+                <li>点击"开始分析"查看TOP10排名</li>
+                <li>点击"生成图表"查看可视化图表</li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>数据分析中...</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/parking.js') }}"></script>
+</body>
+</html>

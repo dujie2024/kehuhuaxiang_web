@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新朝旅游客户画像分析系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>🚗 新朝旅游</h1>
+                <p>客户画像分析系统</p>
+            </div>
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-view="parking">
+                    📊 停车数据分析
+                </button>
+                <button class="nav-item" data-view="booking">
+                    🎫 预订数据分析
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <p>{{ version }}</p>
+            </div>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 停车数据分析视图 -->
+            <div id="parking-view" class="view-container active">
+                <div class="view-header">
+                    <h2>📊 停车数据分析</h2>
+                </div>
+                
+                <div class="content-grid">
+                    <!-- 查询表单 -->
+                    <div class="form-panel">
+                        <h3>查询参数设置</h3>
+                        <form id="parking-form">
+                            <div class="form-group">
+                                <label for="parking-lot">停车场选择:</label>
+                                <select id="parking-lot" name="parking_lot" required>
+                                    <option value="天女小镇停车场">天女小镇停车场</option>
+                                    <option value="欢乐湾停车场">欢乐湾停车场</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="parking-chart-type">图表类型:</label>
+                                <select id="parking-chart-type" name="chart_type" required>
+                                    <option value="按省份">按省份</option>
+                                    <option value="按城市">按城市</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="parking-start-date">开始日期:</label>
+                                <input type="date" id="parking-start-date" name="start_date" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="parking-end-date">结束日期:</label>
+                                <input type="date" id="parking-end-date" name="end_date" required>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">
+                                🔍 开始分析
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- 结果展示 -->
+                    <div class="results-panel">
+                        <h3>查询结果</h3>
+                        <div id="parking-results" class="results-container">
+                            <div class="empty-state">
+                                <p>👆 请选择查询参数并点击"开始分析"</p>
+                            </div>
+                        </div>
+                        <button id="parking-chart-btn" class="btn btn-secondary" style="display: none;">
+                            📊 生成图表
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 图表展示区 -->
+                <div id="parking-chart-container" class="chart-container" style="display: none;">
+                    <h3>数据可视化</h3>
+                    <img id="parking-chart-img" src="" alt="图表">
+                </div>
+            </div>
+
+            <!-- 预订数据分析视图 -->
+            <div id="booking-view" class="view-container">
+                <div class="view-header">
+                    <h2>🎫 预订数据分析</h2>
+                </div>
+                
+                <div class="content-grid">
+                    <!-- 查询表单 -->
+                    <div class="form-panel">
+                        <h3>查询参数设置</h3>
+                        <form id="booking-form">
+                            <div class="form-group">
+                                <label for="project">项目选择:</label>
+                                <select id="project" name="project" required>
+                                    <option value="祖山">祖山</option>
+                                    <option value="海上游船">海上游船</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="booking-chart-type">图表类型:</label>
+                                <select id="booking-chart-type" name="chart_type" required>
+                                    <option value="手机号段">手机号段</option>
+                                    <option value="实名制（省份）">实名制（省份）</option>
+                                    <option value="实名制(城市)">实名制(城市)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="booking-start-date">开始日期:</label>
+                                <input type="date" id="booking-start-date" name="start_date" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="booking-end-date">结束日期:</label>
+                                <input type="date" id="booking-end-date" name="end_date" required>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-booking">
+                                🔍 开始分析
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- 结果展示 -->
+                    <div class="results-panel">
+                        <h3>查询结果</h3>
+                        <div id="booking-results" class="results-container">
+                            <div class="empty-state">
+                                <p>👆 请选择查询参数并点击"开始分析"</p>
+                            </div>
+                        </div>
+                        <button id="booking-chart-btn" class="btn btn-secondary btn-booking" style="display: none;">
+                            📊 生成图表
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 图表展示区 -->
+                <div id="booking-chart-container" class="chart-container" style="display: none;">
+                    <h3>数据可视化</h3>
+                    <img id="booking-chart-img" src="" alt="图表">
+                </div>
+            </div>
+
+            <!-- 帮助说明 -->
+            <div class="help-section">
+                <h4>📌 数据说明</h4>
+                <ul>
+                    <li>停车数据：天女小镇东西停车场及欢乐湾一二层停车场2025年数据 (20250101-20251010)</li>
+                    <li>订票数据：票务系统客人预订手机号及实名制信息 (20250101-20250820)</li>
+                </ul>
+                <h4>💡 操作说明</h4>
+                <ol>
+                    <li>选择分析维度：停车数据或预订数据</li>
+                    <li>配置查询参数：停车场/项目、图表类型、日期范围</li>
+                    <li>点击"开始分析"按钮查看数据结果</li>
+                    <li>点击"生成图表"按钮查看可视化图表</li>
+                </ol>
+            </div>
+        </main>
+    </div>
+
+    <!-- Loading 遮罩 -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>数据分析中...</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

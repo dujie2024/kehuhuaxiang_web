@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新朝旅游客户画像分析系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .module-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+        
+        .module-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        
+        .module-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .module-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .module-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .module-card:hover .module-btn {
+            transform: scale(1.05);
+        }
+        
+        .parking-card {
+            border-top: 5px solid #1f77b4;
+        }
+        
+        .booking-card {
+            border-top: 5px solid #ff7f0e;
+        }
+        
+        .dzwl-card {
+            border-top: 5px solid #2ca02c;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            opacity: 0.8;
+            margin-top: 40px;
+        }
+        
+        .footer p {
+            margin: 5px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 32px;
+            }
+            
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 新朝旅游客户画像分析系统</h1>
+            <p>Tourism Customer Portrait Analysis System</p>
+        </div>
+        
+        <div class="modules-grid">
+            <a href="/parking" class="module-card parking-card">
+                <div class="module-icon">🚗</div>
+                <div class="module-title">停车数据分析</div>
+                <div class="module-desc">
+                    分析天女小镇和欢乐湾停车场的车辆来源数据<br>
+                    支持按省份、城市维度统计分析
+                </div>
+                <div class="module-btn">进入模块 →</div>
+            </a>
+            
+            <a href="/booking" class="module-card booking-card">
+                <div class="module-icon">🎫</div>
+                <div class="module-title">预订数据分析</div>
+                <div class="module-desc">
+                    分析祖山和海上游船的预订数据<br>
+                    支持手机号段、实名制省份/城市分析
+                </div>
+                <div class="module-btn">进入模块 →</div>
+            </a>
+            
+            <a href="/dzwl" class="module-card dzwl-card">
+                <div class="module-icon">📹</div>
+                <div class="module-title">电子围栏客流</div>
+                <div class="module-desc">
+                    分析电子围栏系统的进出客流数据<br>
+                    实时监控景区人流趋势
+                </div>
+                <div class="module-btn">进入模块 →</div>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>{{ version }}</p>
+            <p>模块化BS架构 | 支持局域网访问</p>
+            <p>票务20250101-20260301 </p>
+        </div>
+    </div>
+</body>
+</html>

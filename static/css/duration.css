@@ -1,0 +1,189 @@
+/* 驻留时长分析样式 */
+.duration-analysis {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.duration-section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.duration-section h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+/* 时长分布卡片 */
+.duration-distribution {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.duration-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+}
+
+.duration-range {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.duration-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.duration-count {
+    font-size: 18px;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.duration-percentage {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2ca02c;
+}
+
+.duration-bar {
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.duration-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.5s ease;
+}
+
+/* 省份对比卡片 */
+.province-comparison {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.province-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.province-card:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.province-rank {
+    font-size: 20px;
+    font-weight: bold;
+    color: #667eea;
+    min-width: 40px;
+}
+
+.province-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    min-width: 80px;
+}
+
+.province-stats {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+}
+
+.stat-item {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.stat-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+.stat-value.highlight {
+    color: #ff7f0e;
+    font-size: 16px;
+}
+
+/* 趋势表格 */
+.trend-table {
+    overflow-x: auto;
+}
+
+.trend-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.trend-table thead {
+    background: #f8f9fa;
+}
+
+.trend-table th {
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.trend-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.trend-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.trend-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .duration-distribution {
+        grid-template-columns: 1fr;
+    }
+    
+    .province-stats {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .trend-table {
+        font-size: 14px;
+    }
+}
